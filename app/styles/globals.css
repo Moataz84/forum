@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans', sans-serif;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #f4f4f4;
+}
+
+nav {
+  width: 80%;
+  height: 60px;
+  background-color: #fff;
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 0 10%;
+  position: sticky;
+  top: 0;
+  z-index: 3;
+}
+
+.logo {
+  color: #000;
+  font-size: 23px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.logo span {
+  color: #1a73e8;
+  font-weight: 600;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  outline: 1px solid #ccc;
+  background-color: #fff;
+  padding: 0 5px;
+  position: relative;
+}
+
+.search-bar input {
+  flex: 1;
+  background-color: #ffffff00;
+  outline: none;
+  border: 0;
+  color: #808080;
+  padding: 7px 5px;
+}
+
+.search-bar.focused {
+  outline: #1a73e8 solid 2px;
+}
+
+.search-tips {
+  width: calc(100% - 18px);
+  height: 70px;
+  position: absolute;
+  top: 46px;
+  left: -1.5px;
+  border: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+  background-color: #fff;
+  z-index: 3;
+  padding: 10px;
+  display: none;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+}
+
+.search-tips p {
+  align-self: center;
+  font-size: 13px;
+}
+
+.search-tips p span {
+  color: #6a737c;
+}
+
+.login-btn, .signup-btn {
+  outline: 2px solid #1a73e8;
+  background-color: #ffffff00;
+  border-radius: 3px;
+  color: #1a73e8;
+  font-size: 16px;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 9px 18px;
+}
+
+.login-btn:hover, .signup-btn:hover {
+  color: #fff;
+  background-color: #1a73e8;
+}
+
+nav img {
+  width: 40px;
+  height: 40px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+nav .dropdown {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  top: 60px;
+  right: 10%;
+  background-color: #fff;
+  border-radius: 0 0 5px 5px;
+  border: 1px solid #ccc;
+  z-index: 4;
+}
+
+nav .profile-pic:hover + .dropdown, nav .dropdown:hover {
+  display: flex;
+}
+
+nav .dropdown a, nav .dropdown button {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border: 0;
+  outline: none;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 50px 10px 10px;
+}
+
+nav .dropdown a:first-of-type {
+  border-radius: 5px 5px 0 0;
+}
+
+nav .dropdown button {
+  border-top: 1px solid #ccc;
+  border-radius: 0 0 5px 5px;
+}
+
+nav .dropdown a:hover, nav .dropdown button:hover {
+  background-color: #f1f2f3;
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  margin-bottom: 70px;
+}
+
+footer {
+  width: calc(100% - 30px);
+  height: 70px;
+  background-color: black;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  padding: 0 15px;
+}
+
+.spinner {
+  border: 4px solid #0000001a;
+  border-left-color: blue;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  position: absolute;
+  top: calc((100% - 48px) / 2);
+  right: calc((100% - 270px) / 2);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.side-menu {
+  width: fit-content;
+  min-height: calc(100vh - 171px);
+  max-height: calc(100vh - 70px);
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #ccc;
+  background-color: #fff;
+  position: sticky;
+  top: 60px;
+  padding: 20px 10px;
+}
+
+.side-menu a {
+  font-size: 14px;
+  font-weight: 500;
+  color: #000;
+  text-decoration: none;
+  padding: 10px 70px 10px 24px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.side-menu a:hover {
+  background-color: #f1f2f3;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  background-color: #fff;
+  padding: 10px;
+  margin: 0 auto;
+}
+
+.pagination a, .pagination p {
+  font-size: 13px;
+  color: #000;
+  text-decoration: none;
+  padding: 5px 10px;
+  border: 1px solid #ccc;
+  border-radius: 2px;
+}
+
+.pagination p, .pagination a:hover {
+  background-color: #f1f1f1;
+}
+
+.no-results {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 20px;
+  margin-top: 70px;
+}

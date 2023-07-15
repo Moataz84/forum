@@ -1,0 +1,89 @@
+.required-characters {
+  font-size: 13px;
+  font-weight: 500;
+  position: absolute;
+  right: 0;
+  top: calc(100% + 5px);
+}
+
+.ql-formats button {
+  margin-top: 0 !important;
+}
+
+.ql-code-block, .ql-insertLine {
+  width: auto !important;
+  fill: #444 !important;
+}
+
+.ql-code-block:hover > svg, button.ql-code-block.ql-active,
+.ql-insertLine:hover > svg, button.ql-insertLine.ql-active {
+  fill: #06c !important;
+}
+
+.ql-editor:not(.preview) {
+  font-size: 15px !important;
+  min-height: 200px !important;
+  resize: vertical !important;
+  padding: 10px !important;
+}
+
+.ql-editor:focus {
+  outline: 1px solid #1a73e8 !important;
+}
+
+.ql-syntax, code {
+  color: #000 !important;
+  font-size: 13px !important;
+  font-family: monospace !important;
+  background-color: #f6f6f6 !important;
+}
+
+.ql-editor blockquote {
+  padding: 8px 8px 8px 16px !important;
+}
+
+.ql-editor hr {
+  all: unset !important;
+  width: 100% !important;
+  display: block !important;
+  border-bottom: 1px solid #ccc !important;
+  margin: 10px 0 !important;
+}
+
+.ql-editor hr > br {
+  display: none !important;
+}
+
+.ql-editor blockquote, .ql-editor ol, .ql-editor ul, .ql-editor .ql-syntax {
+  margin: 8px 0 !important;
+}
+
+.preview-container.quill, 
+.preview-container .ql-container,
+.preview-container .ql-snow,
+.preview-container .ql-editor {
+  all: unset;
+}
+
+.preview-container {
+  word-break: break-word !important;
+}
+
+.preview {
+  font-size: 15px !important;
+  line-height: 1.4 !important;
+  margin-top: 15px !important;
+  word-wrap: break-word !important;
+}
+
+.preview .ql-syntax {
+  overflow: auto !important;
+  white-space: pre !important;
+}
+
+.ql-editor img {
+  width: 100% !important;
+  height: auto !important;
+  max-width: none !important;
+  cursor: default !important;
+}

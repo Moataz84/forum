@@ -1,0 +1,89 @@
+.post-container {
+  width: 60%;
+  max-width: 1000px;
+  padding: 40px;
+  margin: 0 auto;
+}
+
+.post-container form {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-top: 40px;
+  background-color: #fff;
+  padding: 20px;
+}
+
+.post-container form > label {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.post-container form > p {
+  font-size: 12px;
+}
+
+.post-container form label:nth-of-type(n + 2) {
+  margin-top: 10px;
+}
+
+.post-container form input:not(.tag-input input), .tag-input {
+  outline: 1px solid #ccc;
+  border: 0;
+  color: #808080;
+  padding: 7px 5px;
+}
+
+.post-container form input:not(.tag-input input):focus {
+  outline: 1px solid #1a73e8;
+}
+
+.tag-input {
+  height: 22px;
+  display: flex;
+  gap: 5px;
+  overflow: hidden;
+}
+
+.tag-input .tags {
+  display: flex;
+  gap: 5px;
+}
+
+.tags div {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  background-color: #e1ecf4;
+  color: #1a73e8;
+  padding: 3px;
+  border-radius: 3px;
+}
+
+.tags div p {
+  font-size: 12px;
+}
+
+.tag-input input {
+  flex: 1;
+  border: 0;
+  outline: none;
+  color: #808080;
+}
+
+.post-container form > button {
+  width: fit-content;
+  border: 0;
+  border-radius: 3px;
+  background-color: #1a73e8;
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  margin-top: 20px;
+  align-self: flex-end;
+}
+
+.post-container form > button:hover {
+  background-color: #075cca;
+}
