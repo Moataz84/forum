@@ -1,7 +1,6 @@
 "use client"
 import { useRef, useState } from "react"
 import { AiOutlineCamera } from "react-icons/ai"
-import getDataUrl from "@/utils/functions/dataurl"
 import { changeProfile, removeProfile, changeName, changeUsername } from "@/utils/actions/settings"
 import "@/app/styles/settings.css"
 
@@ -30,18 +29,35 @@ export default function Profile({ user }) {
     if (!inputRef.current.files.length) return
     const file = inputRef.current.files[0]
     if (!file.type.includes("image")) return
-    if (file.size > 2 * 1024 * 1024) return
-    const dataurl = await getDataUrl(file)
-    imgRef.current.src = dataurl
-    await changeProfile(dataurl, user.id)
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = e => {
+      const image = document.createElement("img")
+      image.src = e.target.result
+      image.onload = async e => {
+        const width = 512
+        const canvas = document.createElement("canvas")
+        const ratio = e.target.width / e.target.height
+        if (e.target.width > width) canvas.width = width
+        if (e.target.width <= width) canvas.width = e.target.width
+        canvas.height = canvas.width / ratio
+        const context = canvas.getContext("2d")
+        context.drawImage(image, 0, 0, canvas.width, canvas.height)
+        const newImage = context.canvas.toDataURL("image/jpeg", 0.9)
+        imgRef.current.src = newImage
+        inputRef.current.files = new DataTransfer().files
+        await changeProfile(newImage, user.id)
+      }
+    }
   }
   
   async function remove() {
-    if (user.profile.pictureId === "64958d3806370748f205fbda") return
-    imgRef.current.src = "https://ik.imagekit.io/pk4i4h8ea/forum/profiles/no-profile.jpg"
+    const noProfile = "https://ik.imagekit.io/pk4i4h8ea/forum/profiles/no-profile.jpg"
+    if (imgRef.current.src === noProfile) return
+    imgRef.current.src = noProfile
     await removeProfile(user.id)
   }
-
+  
   async function update(e) {
     e.preventDefault()
     setError("")

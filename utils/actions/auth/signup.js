@@ -21,7 +21,7 @@ export default async function signup(name, username, email, password) {
   const forgotPasswordCode = v4().toString().replace(/-/g, "")
   const profile = {
     pictureUrl: "https://ik.imagekit.io/pk4i4h8ea/forum/profiles/no-profile.jpg",
-    pictureId: "64958d3806370748f205fbda"
+    pictureId: "64b4b6b406370748f22ce77e"
   }
   const user = new Users({
     name, 

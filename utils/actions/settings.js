@@ -20,7 +20,7 @@ export async function changeProfile(dataurl, id) {
     }
     const user = await Users.findOneAndUpdate({_id: id}, {$set: {profile}})
     const pictureId = user.profile.pictureId
-    if (pictureId !== "64958d3806370748f205fbda") await imagekit.deleteFile(pictureId)
+    if (pictureId !== "64b4b6b406370748f22ce77e") await imagekit.deleteFile(pictureId)
   })
 }
 
@@ -28,10 +28,12 @@ export async function removeProfile(id) {
   await connectDB()
   const profile = {
     pictureUrl: "https://ik.imagekit.io/pk4i4h8ea/forum/profiles/no-profile.jpg",
-    pictureId: "64958d3806370748f205fbda"
+    pictureId: "64b4b6b406370748f22ce77e"
   }
   const user = await Users.findOneAndUpdate({_id: id}, {$set: {profile}})
-  await imagekit.deleteFile(user.profile.pictureId)
+  try {
+    if (user.profile.pictureId !== "64b4b6b406370748f22ce77e") await imagekit.deleteFile(user.profile.pictureId)
+  } catch {}
 }
 
 export async function changeName(id, name) {
@@ -75,12 +77,12 @@ export async function deleteAccount(id) {
   })
   const profile = {
     pictureUrl: "https://ik.imagekit.io/pk4i4h8ea/forum/profiles/no-profile.jpg",
-    pictureId: "64958d3806370748f205fbda"
+    pictureId: "64b4b6b406370748f22ce77e"
   }
   const user = await Users.findOneAndUpdate(
     {_id: id}, 
     {$set: {deactivated: true, name: "User", username: "user", profile}}
   )
   const pictureId = user.profile.pictureId
-  if (pictureId !== "64958d3806370748f205fbda") await imagekit.deleteFile(pictureId)
+  if (pictureId !== "64b4b6b406370748f22ce77e") await imagekit.deleteFile(pictureId)
 }
