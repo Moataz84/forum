@@ -4,7 +4,7 @@ export default function sendEmail(recipent, subject, body) {
   const transporter = createTransport({
     service: "gmail",
     auth: {
-      user: "moatazghazy442005@gmail.com",
+      user: process.env.EMAIL,
       pass: process.env.PASSWORD
     }
   })

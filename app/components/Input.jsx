@@ -52,7 +52,7 @@ export default function Input({ type, name, value, setValue, setMsg }) {
           !show? 
             <FaEye className="icon" size={22} onClick={changeVisibility} /> 
           : 
-            <FaEyeSlash className="icon" size={24} onClick={changeVisibility} />
+            <FaEyeSlash className="icon" size={22} onClick={changeVisibility} />
         : 
           <></>
       }
